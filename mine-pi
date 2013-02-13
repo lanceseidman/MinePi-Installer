@@ -1,0 +1,88 @@
+    #!/bin/bash
+    clear # Let's clear the terminal window...
+     
+    # Now we'll show the user a small menu screen to choose a task.
+    echo "Welcome to the Raspberry Pi Minecraft Download & Installer!"
+    echo  "                          By: Lance Seidman (@LanceSeidman)"
+    echo ""
+    echo "This was created to make it easier to download and install Minecraft
+    for those who are new to the Pi or Linux in general."
+    echo ""
+    echo "Minecraft 0.1.1 will be downloaded to your Pi directly."
+    echo ""
+    echo "What would you like to do..."
+    echo "1). Download a Fresh Copy of Minecraft"
+    echo "2). Resume Broken/Failed Minecraft Download"
+    echo "Type number: "
+    read RESP # This is where we define RESP and use it to store a response
+     
+    if [ "$RESP" = "1" ]; then # If they choose Option 1, Download & Etc.
+     
+    echo "Attempting to Download now..." # Notify we're going to download.
+    echo ""
+    echo "It may take several moments to download this file, wait patiently!"
+    echo ""
+     
+    # We'll use WGET to download the Minecraft file.
+    wget -c https://s3.amazonaws.com/assets.minecraft.net/pi/minecraft-pi-0.1.1.tar$
+     
+    # Sometimes stuff happens, lets make sure the file exists.
+    if [ ! -f minecraft-pi-0.1.1.tar.gz ];
+     
+    then # since it doesn't exist, lets tell them!
+    echo "Can't find the file we just got, check your internet and try again."
+    exit # We're going to quit. Yes we can re-launch and retry, maybe next time.
+    fi # Close our if statement.
+     
+    # Let the user know we're going to be extracting the file we downloaded.
+    echo "I'm going to try and extract Minecraft now..."
+    tar -zxvf minecraft-pi-0.1.1.tar.gz # This will extract everything now.
+    # Now that it's done, later we'll make sure it worked but now let's go in!
+    echo "I'm going in cap! Entering the folder to Launch Minecraft!"
+     
+    cd mcpi # We need to enter the directory the extraction made.
+    ./minecraft-pi # Next version we'll see if they're local but try to launch MC!
+    clear # They closed MC now or didn't open BUT clear the window.
+     
+    echo "Now you have Minecraft!"
+    echo "You may want to add code to your .bashrc for an alias!"
+    echo ""
+    echo "Have a great day!" # Always be nice!
+    fi # Now we close the whole original if statement from the menu selection.
+     
+    # Let's check for the next menu option.
+    if [ "$RESP" = "2" ]; then # Looks like they want to resume a broken download!
+     
+    # First, let's make sure they're not tricking us and they actually have it.
+    if [ ! -f minecraft-pi-0.1.1.tar.gz ]; # Check if it exists?
+    then # Yikes, they don't have it. Now we have to tell them.
+    echo "Can't find the file we just got, check your internet and try again."
+    exit # We could eventually re-load but for now, goodbye.
+    fi # Close the if statement that tried to find if the file existed.
+     
+    # Looks like they actually tried to download it, let's resume the file!
+    echo "I'll try to resume your previous download..."
+    echo ""
+    wget -c https://s3.amazonaws.com/assets.minecraft.net/pi/minecraft-pi-0.1.1.tar.gz
+     
+    # Let the user know we're going to be extracting the file we downloaded.
+    echo "I'm going to try and extract Minecraft now..."
+    tar -zxvf minecraft-pi-0.1.1.tar.gz # This will extract everything now.
+    # Now that it's done, later we'll make sure it worked but now let's go in!
+    echo "I'm going in cap! Entering the folder to Launch Minecraft!"
+    cd mcpi # We need to enter the directory the extraction made.
+    ./minecraft-pi # Next version we'll see if they're local but try to launch MC!
+    clear # They closed MC now or didn't open BUT clear the window.
+     
+    echo "Now you have Minecraft!"
+    echo "You may want to add code to your .bashrc for an alias!"
+    echo ""
+    echo "Have a great day!" # Always be nice!
+     
+    fi # Close the original menu selection IF Statement.
+     
+    if [ "$RESP" = "3" ]; then # Oh a secret option!
+    echo " Hey guys, you found a little secret. You can put a secret in your program
+    in the future. So, only your friends know about it... Thanks for learning!"
+    exit
+    fi
