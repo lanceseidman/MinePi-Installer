@@ -1,0 +1,41 @@
+****************************************************************************************
+*
+* Script Name: MinePi Installer Script
+* Version: 0.1.1 (Minecraft Edition)
+* By: Lance Seidman (@LanceSeidman) <http://lance.compulsivetech.biz> 
+*
+* Description: This was designed to help Raspberry Pi users to easily download
+* and extract the Minecraft Archive. It also offers the ability to Resume bro-
+* ken downloads that may happen if something happens to the Pi but also will 
+* make a refrence to the Minecraft launcher so that the Pi user can just type
+* minecraft in a Bash Terminal.
+*
+* Education Purpose: Beyond making a easy to use autorun script, I hope the Pi
+* users will read the source to the small script and hopefully with the easy
+* to understand comments and the way it was written, they can maybe learn how
+* to make installers for his/her future development projects. In the spirit of
+* open source, this is really a way to catch the attention of a younger group
+* or even an older set of people to get them in to programming.
+*
+* License: In the spirit of supporting Aaron Schwartz, this is obviously CC &
+* is OPEN to the world. Do what you want to it, make changes or learn from it.
+* The very least, make simple changes for your own personal use.
+*
+* HOWTO Launch Script
+*
+* *  Open a Terminal on the Pi in GUI (Graphical)
+* *  1). Click the 'Menu' button on the bottom left corner.
+* *  2). Move your mouse up to "Accessories" and when presented, click LXTerminal.
+*
+* *  In your terminal, locate the script you downloaded (ls to view directory files)
+* *  You found the script? Good job!
+* *  Now type or copy: ./mine-pi and press enter on your keyboard & use the Menu.
+*
+* *  Note: You don't need sudo because using LXTermainl (if in GUI) you're root..
+* *  If you're using SSH & remotely connecting, you can't launch Minecraft BUT
+* *  you will be able to run the script to download, and install/setup.
+* *
+* *  Tip: If you don't have chmod 775 set, you may not be able to launch it. Also
+* *  you'll use sudo if you're in a remote connection (means not at the Pi or VNC)
+*
+****************************************************************************************
